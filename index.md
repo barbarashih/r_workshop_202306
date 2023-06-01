@@ -10,15 +10,21 @@ Try each of the line below in Rstudio
 ```
 ### Task 1.2
 Try the below and consider the following questions
-```
+```r
 10%%4
 9%%4
 8%%4
 x
 ```
+
 Q1. What does %% mean?
 
 Q2. What does the error you get from typing "x" mean?
+
+| :exclamation:  Error troubleshooting  |
+|:------------|
+|<span style="color:red">Error: object 'x' not found</span>|
+| Check that you haven't set your variable (or spelt it wrong)|
 
 <br/><br/> 
 
@@ -27,7 +33,7 @@ You can assign values to variables using the back arrow <-
 
 ### Task 2.1
 Try the following
-```
+```r
 a <- 100
 b <- 200
 a + b
@@ -44,7 +50,7 @@ a + this_is_a_long_name
 
 ### Task 2.2
 Try adding a few variables together. For example
-```
+```r
 apple <- 0.5
 chocolate_bar <- 0.9
 tuna_sandwitch <- 5.5
@@ -53,7 +59,7 @@ my_lunch
 ```
 ### Task 2.3
 Try creating strings
-```
+```r
 item1 <- "apple"
 item2 <- "chocolate bar"
 item1 + item2
@@ -61,21 +67,32 @@ item1 + item2
 Q1. What went wrong?
 ### Challenge 2.1
 Try the code below
-```
+```r
 apple <- "0.5"
 chocolate_bar <- "0.9"
 apple + chocolate_bar
 ```
 Q1: Did you get an error. If you did, what went wrong? If you did not, check what is different between the code you have typed and the code just above.
+| :exclamation:  Error troubleshooting  |
+|:------------|
+|<span style="color:red">Error in apple + chocolate_bar : non-numeric argument to binary operator</span>|
+| Check that your variables are numeric by using class(). Sometimes it can look like numbers, but R thinks it is not.|
 
 ### Task 2.4
-Stick words together. Pay attention to the spaces
-```
+Stick words together using paste and paste0. Pay attention to the spaces
+```r
 item1 <- "apple"
 item2 <- "chocolate bar"
 item3 <- "tuna sandwich"
-paste0("lunch:", item1, item2, item3)
+paste("lunch:",  item1, item2, item3)
+```
+### Challenge 2.2
+```r
+paste("lunch:",  item1, item2, item3, sep= ",")
+
+paste0("lunch:",  item1, item2, item3)
 paste0("lunch: ", item1, ", ", item2, ", ", item3)
+
 ```
 
 
@@ -104,21 +121,21 @@ Data type            | Examples           |  Long explaination         |
 
 ### Task 3.1
 Try checking the data types of the variables you have created. This is a very useful troubleshooting command when you are not sure what you're looking at. 
-```
+```r
 class(a)
 ```
 
 <br> </br>
 ## 4. Read in a file
 We want to first find where our working directory is. Working directory is the folder you are currently in for R. You can find your working directory by using getwd() [get working directory]
-```
+```r
 getwd()
 current_working_dir <- getwd()
 class(current_working_dir)
 ```
 ### Task 4.1
 Change your directory to a specified folder on your computer. You will need to change the working_dir below so it is a folder in your computer. You can do this by using setwd() [set working directory]
-```
+```r
 working_dir <- "C:/Users/barbara_shih/r_workshop_202306"
 setwd(working_dir)
 ```
