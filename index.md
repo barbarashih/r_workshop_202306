@@ -53,12 +53,12 @@ Try adding a few variables together. For example
 ```r
 apple <- 0.5
 chocolate_bar <- 0.9
-tuna_sandwitch <- 5.5
-my_lunch <- apple + chocolate_bar + tuna_sandwitch
+tuna_sandwich <- 5.5
+my_lunch <- apple + chocolate_bar + tuna_sandwich
 my_lunch
 ```
 ### Task 2.3
-Try creating strings
+You can create strings (a string of letters, numbers or symbols). Unless you put the letters between quotations marks, R would look for these letters as if they are a variable name.
 ```r
 item1 <- "apple"
 item2 <- "chocolate bar"
@@ -76,7 +76,7 @@ Q1: Did you get an error. If you did, what went wrong? If you did not, check wha
 | :exclamation:  Error troubleshooting  |
 |:------------|
 |<span style="color:red">Error in apple + chocolate_bar : non-numeric argument to binary operator</span>|
-| Check that your variables are numeric by using class(). Sometimes it can look like numbers, but R thinks it is not.|
+| Check that your variables are numeric by using class(chocolate_bar). Sometimes it can look like numbers, but R thinks it is not.|
 
 ### Task 2.4
 Stick words together using paste and paste0. Pay attention to the spaces
@@ -87,6 +87,8 @@ item3 <- "tuna sandwich"
 paste("lunch:",  item1, item2, item3)
 ```
 ### Challenge 2.2
+Try changing sep="," to sep="@" for paste.
+Try using paste0.
 ```r
 paste("lunch:",  item1, item2, item3, sep= ",")
 
@@ -122,7 +124,10 @@ Data type            | Examples           |  Long explaination         |
 ### Task 3.1
 Try checking the data types of the variables you have created. This is a very useful troubleshooting command when you are not sure what you're looking at. 
 ```r
+a
 class(a)
+item1
+class(item1)
 ```
 
 <br> </br>
