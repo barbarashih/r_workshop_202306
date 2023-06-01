@@ -8,7 +8,7 @@ Try each of the line below in Rstudio
 8 / 2
 10^4
 ```
-### Challenge 1.1
+### Task 1.2
 Try the below and consider the following questions
 ```
 10%%4
