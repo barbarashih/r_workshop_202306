@@ -32,6 +32,8 @@ a <- 100
 b <- 200
 a + b
 a / b
+this_is_a_long_name <- 1000
+a + this_is_a_long_name
 ````
 | Good            | Bad           |  Warning         |
 |:-------------:|:-------------:|:---------------:|
