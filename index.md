@@ -18,7 +18,7 @@ x
 ```
 Q1. What does %% mean?
 
-Q2. What does the error you get from typing "a" mean?
+Q2. What does the error you get from typing "x" mean?
 
 <br/><br/> 
 
