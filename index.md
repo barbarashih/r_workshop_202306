@@ -151,8 +151,11 @@ setwd(working_dir)
 ```
 ### Task 4.2
 File 1
+
 Download [gene expression data](https://github.com/barbarashih/r_workshop_202306/raw/main/gene_expression.csv). Go to the linked page then right click to choose "Save as..." when you're on the page.
+
 File 2
+
 Download the [gene descriptions](https://github.com/barbarashih/r_workshop_202306/raw/main/gene_long_name.csv) Go to the linked page then right click to choose "Save as..." when you're on the page.
 
 
