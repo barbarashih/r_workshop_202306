@@ -8,7 +8,7 @@ Try each of the line below in Rstudio
 8 / 2
 10^4
 ```
-#### Challenge 1.1
+### Challenge 1.1
 Try the below and consider the following questions
 ```
 10%%4
@@ -49,7 +49,6 @@ tuna_sandwitch <- 5.5
 my_lunch <- apple + chocolate_bar + tuna_sandwitch
 my_lunch
 ```
-
 ### Task 2.3
 Try creating strings.
 ```
@@ -57,7 +56,7 @@ item1 <- "apple"
 item2 <- "chocolate_bar"
 item1 + item2
 ```
-#### Challenge 2.1
+### Challenge 2.1
 Try the code below
 ```
 apple <- "0.5"
@@ -90,18 +89,40 @@ Data type            | Examples           |  Long explaination         |
 ##### Table 2. Main data types in R.
 
 
-### Task 3.1: 
+### Task 3.1
 Try checking the data types of the variables you have created. This is a very useful troubleshooting command when you are not sure what you're looking at. 
 ```
 class(a)
 ```
-#### Challenge 3.1:
-Try out some of the examples in [Table 2](https://github.com/barbarashih/r_workshop_202306/edit/main/index.md#table-2-main-data-types-in-r). 
 
-Try editting the examples and check what happens.
-Try checking the class for class.
-
+<br> </br>
 ## 4. Read in a file
+We want to first find where our working directory is. Working directory is the folder you are currently in for R. You can find your working directory by using getwd() [get working directory]
+```
+getwd()
+```
+### Task 4.1
+Change your directory to a specified folder on your computer. You will need to change the working_dir below so it is a folder in your computer. You can do this by using setwd() [set working directory]
+```
+working_dir <- "C:/Users/barbara_shih/r_workshop_202306"
+setwd(working_dir)
+```
+### Task 4.2
+Download the tables here and put them in your working directory.
+
+### Challenge 4.1
+It might take some time get get everyone set up, so please try out some of the examples in Table 2. Here are some ideas on things you can try:
+- Run the examples and see what they look like.
+- Editting the examples and check what happens. 
+- Remove one of the numbers in the data.matrix example, what happens?
+- What happens when you type class(class)?
+- After creating the function myfun, try myfun(1,2). What do you think the function is doing?
+- Try writing a function that converts celsius to fahrenheit.
+
+
+
+
+
 
 
 
