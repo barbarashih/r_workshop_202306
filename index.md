@@ -150,8 +150,8 @@ working_dir <- "C:/Users/barbara_shih/r_workshop_202306"
 setwd(working_dir)
 ```
 ### Task 4.2
-Download gene expression data [here](https://github.com/barbarashih/r_workshop_202306/gene_expression.csv) and put them in your working directory.
- <a href="downloadURL" target="_blank" />https://barbarashih.github.io/r_workshop_202306/gene_expression.csv</a>
+Download gene expression data by [right clicking this link](https://github.com/barbarashih/r_workshop_202306/raw/main/gene_expression.csv) and choose save as.
+ 
  
 <details>
   <summary>Challenge</summary>
