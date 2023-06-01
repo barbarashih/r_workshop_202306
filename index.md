@@ -135,6 +135,21 @@ item1
 class(item1)
 ```
 
+<details>
+  <summary>Challenge</summary>
+  
+  ### Challenge 3.1
+  It might take some time get get everyone set up, so please try out some of the examples in Table 2. Here are some ideas on things you can try:
+  - Run the examples and see what they look like.
+  - Editting the examples and check what happens. 
+  - Remove one of the numbers in the data.matrix example, what happens?
+  - What happens when you type class(class)?
+  - After creating the function myfun, try myfun(1,2). What do you think the function is doing?
+  - Try writing a function that converts celsius to fahrenheit.
+  - Try making a function that stick together a defined string and a user input (for example, user can in put "apple", and "0.5", and the function will return "apple costs £0.5". If you can already do this, then try to make it return "An apple costs 50p".)
+</details>
+
+
 <br> </br>
 ## 4. Read in a file
 We want to first find where our working directory is. Working directory is the folder you are currently in for R. You can find your working directory by using getwd() [get working directory]
@@ -158,20 +173,6 @@ File 2
 
 Download the [gene descriptions](https://github.com/barbarashih/r_workshop_202306/raw/main/gene_long_name.csv) Go to the linked page then right click to choose "Save as..." when you're on the page.
 
-
-<details>
-  <summary>Challenge</summary>
-  
-  ### Challenge 4.1
-  It might take some time get get everyone set up, so please try out some of the examples in Table 2. Here are some ideas on things you can try:
-  - Run the examples and see what they look like.
-  - Editting the examples and check what happens. 
-  - Remove one of the numbers in the data.matrix example, what happens?
-  - What happens when you type class(class)?
-  - After creating the function myfun, try myfun(1,2). What do you think the function is doing?
-  - Try writing a function that converts celsius to fahrenheit.
-  - Try making a function that stick together a defined string and a user input (for example, user can in put "apple", and "0.5", and the function will return "apple costs £0.5". If you can already do this, then try to make it return "An apple costs 50p".)
-</details>
 
 ### Task 4.3
 Read in a file.
