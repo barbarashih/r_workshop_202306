@@ -37,8 +37,8 @@ a + this_is_a_long_name
 ````
 | Good            | Bad           |  Warning         |
 |:-------------:|:-------------:|:---------------:|
-| sampleMetaData1      | sample Meta Data 1 |          sampleMetaData1 is not the same as samplemetadata1   |
-| sample.meta.data.1      | s@mple.meta.data.1      |  short common terms could be existing functions (e.g. min, max, mean)   |
+| sampleMetaData1      | sample Meta Data 1 |          Be careful where the capitalisations are- sampleMetaData1 is not the same as samplemetadata1   |
+| sample.meta.data.1      | s@mple.meta.data.1      |  Avoid short common terms - they could be existing functions (e.g. min, max, mean)   |
 | sample_meta_data_1 | 1_sample_meta_data      |               |
 ##### Table 1. Examples of good and bad variable names. Notes on things to watch out for when naming your variables.
 
