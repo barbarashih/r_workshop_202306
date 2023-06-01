@@ -14,7 +14,7 @@ Try the below and consider the following questions
 10%%4
 9%%4
 8%%4
-z
+x
 ```
 Q1. What does %% mean?
 
