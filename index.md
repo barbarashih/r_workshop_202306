@@ -52,12 +52,13 @@ my_lunch <- apple + chocolate_bar + tuna_sandwitch
 my_lunch
 ```
 ### Task 2.3
-Try creating strings.
+Try creating strings
 ```
 item1 <- "apple"
 item2 <- "chocolate bar"
 item1 + item2
 ```
+Q1. What went wrong?
 ### Challenge 2.1
 Try the code below
 ```
