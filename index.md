@@ -53,7 +53,7 @@ my_lunch
 Try creating strings.
 ```
 item1 <- "apple"
-item2 <- "chocolate_bar"
+item2 <- "chocolate bar"
 item1 + item2
 ```
 ### Challenge 2.1
@@ -64,6 +64,16 @@ chocolate_bar <- "0.9"
 apple + chocolate_bar
 ```
 Q1: Did you get an error. If you did, what went wrong? If you did not, check what is different between the code you have typed and the code just above.
+
+### Task 2.4
+Stick words together. Pay attention to the spaces
+```
+item1 <- "apple"
+item2 <- "chocolate bar"
+item3 <- "tuna sandwich"
+paste0("lunch:", item1, item2, item3)
+paste0("lunch: ", item1, ", ", item2, ", ", item3)
+```
 
 
 <br> </br>
@@ -100,6 +110,8 @@ class(a)
 We want to first find where our working directory is. Working directory is the folder you are currently in for R. You can find your working directory by using getwd() [get working directory]
 ```
 getwd()
+current_working_dir <- getwd()
+class(current_working_dir)
 ```
 ### Task 4.1
 Change your directory to a specified folder on your computer. You will need to change the working_dir below so it is a folder in your computer. You can do this by using setwd() [set working directory]
@@ -118,7 +130,10 @@ It might take some time get get everyone set up, so please try out some of the e
 - What happens when you type class(class)?
 - After creating the function myfun, try myfun(1,2). What do you think the function is doing?
 - Try writing a function that converts celsius to fahrenheit.
+- Try making a function that stick together a defined string and a user input (for example, user can in put "apple", and "0.5", and the function will return "apple costs £0.5". If you can already do this, then try to make it return "An apple costs 50p".)
 
+### Task 4.3
+Read in a file.
 
 
 
