@@ -77,9 +77,7 @@ Q1. What went wrong?
   ```
   Q1: Did you get an error. If you did, what went wrong? If you did not, check what is different between the code you have typed and the code just above.
   
-  :exclamation:  $\textcolor{red}{\textsf{Error in apple \+ chocolate\\_bar : non-numeric argument to binary operator}}$ 
-  
-  Check that your objects are numeric by using class(chocolate_bar). Sometimes it can look like numbers, but R thinks it is not.
+  A1. This error $\textcolor{red}{\textsf{Error in apple \+ chocolate\\_bar : non-numeric argument to binary operator}}$ is saying that the values you tried to add together are not numbers. Check that your objects are numeric by using class(chocolate_bar). Sometimes things can look like numbers, but R thinks it is not. This can sometimes be a problem when you import data.
 </details>
 
 ### Task 2.4
