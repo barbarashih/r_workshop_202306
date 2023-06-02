@@ -143,6 +143,9 @@ Data type            | Examples           |  Long explaination         |
 ### Task 3.1
 
 ```r
+# You can find a list of all the objects in the current R session
+ls()
+
 # Try checking the data types of the variables you have created. 
 # This is a very useful troubleshooting command when you are not sure what you're looking at. 
 a
@@ -272,10 +275,14 @@ gene_annotation <- read.csv("gene_long_name.csv")
 ```
 
 <br/><br/> 
-## 6. Dataframes (tables)
+## 6. Data frames (tables)
 ### Task 6.1
-Check the dataframe characteristics.
+Check the data frame characteristics.
 ```r
+# Check that you have read in the files.
+# Do you see "gene_exprs" and "gene_annotation" when using ls()? (if not, let me know)
+ls()
+  
 # It's handy to know what data type you are dealing with
 class(gene_exprs)
 class(gene_annotation)
@@ -284,7 +291,7 @@ class(gene_annotation)
 head(gene_exprs)
 head(gene_annotation)
                
-# It is useful to check the number of rows and columns in a dataframe
+# It is useful to check the number of rows and columns in a data frame
 ncol(gene_exprs)
 nrow(gene_exprs)
 
@@ -308,27 +315,76 @@ head(gene_exprs[,c("Brain1", "Blood1")] )
 # Check the data type
 class(gene_exprs$Brain1)
 class(gene_exprs$Name)
+
+# if you see "factor" for class(gene_exprs$Name), 
+# please go back and repeat Task 5.4. 
+# Make sure you use the line below before reading in your csv files
+  options(stringsAsFactors=FALSE)
+
 ```
-         
+  
 ### Task 6.3
 ```r
+# You can get the column and rownames, these are vectors
+colnames(gene_exprs)
+row.names(gene_exprs)
+
+# You can set the row names to a vector of unique values
+# Think of it like names - if you have 2 identical names, R wouldn't be able to tell which is which
+row.names(gene_exprs) <- gene_exprs$Name
+head(gene_exprs)                    
+```
+                         
+### Task 6.4
+```r
 # You can make a new column by using existing columns
-gene_expr_edited <- gene_expr
-gene_expr_edited$Mixed1 <-  gene_expr$Brain1 + gene_expr$Blood1
-head(gene_expr)
-head(gene_expr_edited)
+gene_exprs_edited <- gene_exprs
+gene_exprs_edited$Mixed1 <-  gene_exprs_edited$Brain1 + gene_exprs_edited$Blood1
+head(gene_exprs)
+head(gene_exprs_edited)
 
 # You can make a new column based on conditions you want 
 # Filters (add the conditions you want together with &)
-gene_expr_edited$threshold <- (gene_expr_edited$Brain1 > 0) & (gene_expr_edited$Brain2 > 0) & (gene_expr_edited$Brain3 > 0)  
+gene_exprs_edited$threshold <- (gene_exprs_edited$Brain1 > 0) & (gene_exprs_edited$Brain2 > 0) & (gene_exprs_edited$Brain3 > 0)  
 head(gene_expr_edited)
-# Filters ( | )
-gene_expr_edited$threshold <- (gene_expr_edited$Brain1 > 0) | (gene_expr_edited$Brain2 > 0) | (gene_expr_edited$Brain3 > 0)  
-head(gene_expr_edited)  
+# Filters ( using | to indicate or between your conditions)
+gene_exprs_edited$threshold2 <- (gene_exprs_edited$Brain1 > 0) | ((gene_exprs_edited$Brain2 > 0) | (gene_exprs_edited$Brain3 > 0) ) 
+head(gene_exprs_edited)  
                           
 ```
 
+### Task 6.5
+```r
+# Let's filter this data frame so we only keep rows where all brain samples have an expression
+# You don't have to add the column to the data frame (you can create the TRUE/FALSE vector outside the dataframe)
+keep <- (gene_exprs$Brain1 > 0) & (gene_exprs$Brain2 > 0) & (gene_exprs$Brain3 > 0)  
+gene_exprs_edited <- gene_exprs[keep,]
+nrow(gene_exprs)
+nrow(gene_exprs_edited)                    
+```
+                    
+### Task 6.6
+```r
+# Annotate the genes with a different data frame
+head(gene_annotation)
+head(gene_exprs_edited)
+gene_exprs_annotated1 <- merge(gene_exprs_edited, gene_annotation, by.x = "Name", by.y="Name")
+gene_exprs_annotated2 <- merge(gene_exprs_edited, gene_annotation, by.x = "Name", by.y="Name", all.x=TRUE)
 
+# What is the difference between whether if you use all.x?
+nrow(gene_exprs_annotated1)
+nrow(gene_exprs_annotated2)
+                         
+```
+
+<details>
+  <summary>Challenge</summary>
+  ```r
+  # You can refer to specific columns in a dataframe by their name
+  gene_exprs[,c("Brain1", "Blood1")]
+  ```
+  
+</details>
 
 
 
