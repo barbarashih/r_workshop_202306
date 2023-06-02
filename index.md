@@ -194,6 +194,14 @@ x + y
 # You can paste two vectors
 letters <- c("a", "b", "c")
 paste(letters, x, sep="")
+
+# You can combine multiple vectors (of the same type)
+c(x, y)
+c(100, y, 150)
+# When you combine a character vector with a numeric vector, 
+# R changes everything to characters (notice the quotation marks around the numbers)
+c(1, 100, letters)
+
 ```
 <details>
   <summary>Challenge</summary>
@@ -236,7 +244,7 @@ class(working_dir)
 # Create a folder where you want to work from for this workshop and make a string that has the folder path
 # IMPORTANT: you need to change the line below to the folder on your computer (this example is for my computer)
 # IMPORTANT: you can copy and paste the file path from Windows, but you need to change \ to /
-working_dir <- "C:/Users/barbara_shih/r_workshop_202306"
+working_dir <- "C:/Users/shihb/OneDrive - Lancaster University/work/teaching/workshop/r_workshop_202306"
 
 # You can change your working directory by using setwd() [set working directory]
 setwd(working_dir)
@@ -344,11 +352,16 @@ head(gene_exprs)
 head(gene_exprs_edited)
 
 # You can make a new column based on conditions you want 
-# Filters (add the conditions you want together with &)
-gene_exprs_edited$threshold <- (gene_exprs_edited$Brain1 > 0) & (gene_exprs_edited$Brain2 > 0) & (gene_exprs_edited$Brain3 > 0)  
+# If condition
+cond1 <- gene_exprs_edited$Brain1 > 0
+cond2 <- gene_exprs_edited$Brain2 > 0
+cond3 <- gene_exprs_edited$Brain3 > 0
+
+# Chain your if conditions (using & and)
+gene_exprs_edited$threshold <- cond1 & cond2 & cond3
 head(gene_expr_edited)
-# Filters ( using | to indicate or between your conditions)
-gene_exprs_edited$threshold2 <- (gene_exprs_edited$Brain1 > 0) | ((gene_exprs_edited$Brain2 > 0) | (gene_exprs_edited$Brain3 > 0) ) 
+# Chain your if conditions (using | or)
+gene_exprs_edited$threshold2 <- cond1 | cond2 | cond3
 head(gene_exprs_edited)  
                           
 ```
@@ -379,14 +392,16 @@ nrow(gene_exprs_annotated2)
 
 <details>
   <summary>Challenge</summary>
+  
   ```r
   # You can refer to specific columns in a dataframe by their name
   gene_exprs[,c("Brain1", "Blood1")]
+  # Q1. Try to organise your dataframe so the columns starts with Name, Description, Gene.Name, and then the sample columns
+  # [Hint: you can use colnames(gene_exprs) to get a vector of the column names]
   ```
-  
 </details>
 
-
+  
 
 
 
