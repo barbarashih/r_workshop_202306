@@ -403,8 +403,8 @@ nrow(gene_exprs_annotated2)
 
 <details>
   <summary>Challenge</summary>
+  
   ### Challenge 6.1  
-
   ```r
   # You can refer to specific columns in a dataframe by their name
   gene_exprs_annotated1[,c("Brain1", "Blood1")]
