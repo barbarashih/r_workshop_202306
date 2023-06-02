@@ -427,7 +427,11 @@ plot(gene_exprs$Brain1, gene_exprs$Brain2, main="RNA seq", xlab="Brain1", ylab="
 # You can change the axis scales to log
 plot(gene_exprs$Brain1, gene_exprs$Brain2, log='xy')
   
+# Zeros cannot be logged, you can avoid the error message by adding a small number to the value
+plot(gene_exprs$Brain1 + 0.1, gene_exprs$Brain2 + 0.1, log='xy')
+  
 ```
+
 
 ![image](https://github.com/barbarashih/r_workshop_202306/assets/8283969/8b0ae209-b536-40ad-8821-bd1d111a7d27)
 ```r
