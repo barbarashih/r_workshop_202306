@@ -364,7 +364,7 @@ cond3 <- gene_exprs_edited$Brain3 > 0
 
 # Chain your if conditions (using & and)
 gene_exprs_edited$threshold <- cond1 & cond2 & cond3
-head(gene_expr_edited)
+head(gene_exprs_edited)
 # Chain your if conditions (using | or)
 gene_exprs_edited$threshold2 <- cond1 | cond2 | cond3
 head(gene_exprs_edited)  
