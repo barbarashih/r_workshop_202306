@@ -456,6 +456,7 @@ points(gene_exprs$Brain1, gene_exprs$Blood1, cex=0.5, col="blue", pch=16)
   
 <details>
   <summary>Challenge</summary>
+  
   ### Challenge 7.1
 
 ```r
