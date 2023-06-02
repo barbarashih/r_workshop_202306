@@ -1,39 +1,49 @@
 # Introduction to R
 ## 1. R as a calculator
 ### Task 1.1
-Try each of the line below in Rstudio
 ```r
+# Try using R like a calculator
 1 + 2
 1 * 2
 8 / 2
 10^4
 ```
 ### Task 1.2
-Try the below and consider the following questions
 ```r
+# What happens when you type in a letter instead of number?
 x
 ```
 
 Q1. What does the error you get from typing "x" mean?
 <details>
+Q2. Try adding a # before typing letters, what happens?
   <summary>Answers</summary>
   A1. The error message $\textcolor{red}{\textsf{Error: object 'x' not found}}$ means that R cannot find an object called x. When you see this error and you know that the object should be there, $\textcolor{blue}{\textsf{check that you haven't spelt it wrong}}$ . In this case, the object isn't there.
+  A2. R ignores everything that comes after a #. It is considered to be a comment. Comments are extremely useful and your future-self will thank you for making good comments.
 </details>
 
 <br/><br/> 
 
 ## 2. Making objects
-You can assign values to objects using the back arrow <-
+
 
 ### Task 2.1
-Try the following
 ```r
+# You can make objects in R by using back arrows <-
+# "Objects" in R are usually called "variables" in other programming languages
 a <- 100
 b <- 200
 a + b
-a / b
+
+# You can change the object to something else
+a <- 1
+a + b
+
+# Your object name can be more descriptive
+# This is important when you write longer piece of code, because it will quickly get confusing what short names like a and b refers to.
 this_is_a_long_name <- 1000
 a + this_is_a_long_name
+
 ````
 | Good            | Bad           |  Warning         |
 |:-------------:|:-------------:|:---------------:|
@@ -44,19 +54,23 @@ a + this_is_a_long_name
 .
 
 ### Task 2.2
-Try adding a few objects together. For example
 ```r
+# Assign the cost for different foods into objects
 apple <- 0.5
 chocolate_bar <- 0.9
 tuna_sandwich <- 5.5
+
+# You can add these objects together
 my_lunch <- apple + chocolate_bar + tuna_sandwich
 my_lunch
+
 ```
 ### Task 2.3
-You can create strings (a string of letters, numbers or symbols). Unless you put the letters between quotations marks, R would look for these letters as if they are a object name.
 ```r
+# You can create strings (a string of letters, numbers or symbols) if you put them in quotation marks
+# They can be in double quotations or single quotation marks
 item1 <- "apple"
-item2 <- "chocolate bar"
+item2 <- 'chocolate bar'
 item1 + item2
 ```
 Q1. What went wrong?
@@ -69,8 +83,8 @@ Q1. What went wrong?
   <summary>Challenge</summary>
   
   ### Challenge 2.1
-  Try the code below
   ```r
+  # Try the code below
   apple <- "0.5"
   chocolate_bar <- "0.9"
   apple + chocolate_bar
@@ -81,31 +95,30 @@ Q1. What went wrong?
 </details>
 
 ### Task 2.4
-Stick words together using paste and paste0. Pay attention to the spaces
 ```r
+# Stick words together using paste, separating the objects with commas.
 item1 <- "apple"
 item2 <- "chocolate bar"
-item3 <- "tuna sandwich"
-paste("lunch:",  item1, item2, item3)
+paste("lunch:",  item1, item2)
 ```
 <details>
   <summary>Challenge</summary>
 
   ### Challenge 2.2
-  Try changing sep="," to sep="@" for paste.
-  Try using paste0.
   ```r
-  paste("lunch:",  item1, item2, item3, sep= ",")
+  # You can change the separator for the words
+  paste("lunch:",  item1, item2, sep = "," )
 
-  paste0("lunch:",  item1, item2, item3)
+  # You can be more specific about what you want to seperate the words with using paste0
+  paste0("lunch:", item1, ",", item2, ",", item3)
+
+  # Notice how there are no spaces so far? Spaces are not "empty" space as far as R is concerned. If you want spaces, you need to let it know.
   paste0("lunch: ", item1, ", ", item2, ", ", item3)
-
   ```
 </details>
 
 <br> </br>
 ## 3. Data types
-Main data types in R:
 Data type            | Examples           |  Long explaination         |
 |------------- |-------------|---------------|
 | numeric | 1 | Numbers, can be integers (whole numbers) or float (numbers with digits) |
@@ -127,8 +140,10 @@ Data type            | Examples           |  Long explaination         |
 
 
 ### Task 3.1
-Try checking the data types of the variables you have created. This is a very useful troubleshooting command when you are not sure what you're looking at. 
+
 ```r
+# Try checking the data types of the variables you have created. 
+# This is a very useful troubleshooting command when you are not sure what you're looking at. 
 a
 class(a)
 item1
@@ -152,17 +167,28 @@ class(item1)
 
 <br> </br>
 ## 4. Read in a file
-We want to first find where our working directory is. Working directory is the folder you are currently in for R. You can find your working directory by using getwd() [get working directory]
+
 ```r
+# We want to first find where our working directory is
+# Working directory is the folder you are currently in for R
+# You can find your working directory by using getwd() [get working directory]
 getwd()
-current_working_dir <- getwd()
-class(current_working_dir)
+
+# Notice the data type for what you get back from getwd()
+working_dir <- getwd()
+class(working_dir)
 ```
 ### Task 4.1
-Change your directory to a specified folder on your computer. You will need to change the working_dir below so it is a folder in your computer. You can do this by using setwd() [set working directory]
+
 ```r
+# Create a folder where you want to work from for this workshop and make a string that has the folder path
+# IMPORTANT: you need to change the line below to the folder on your computer (this example is for my computer)
+# IMPORTANT: you can copy and paste the file path from Windows, but you need to change \ to /
 working_dir <- "C:/Users/barbara_shih/r_workshop_202306"
+
+# You can change your working directory by using setwd() [set working directory]
 setwd(working_dir)
+
 ```
 ### Task 4.2
 File 1
@@ -173,9 +199,48 @@ File 2
 
 Download the [gene descriptions](https://github.com/barbarashih/r_workshop_202306/raw/main/gene_long_name.csv) Go to the linked page then right click to choose "Save as..." when you're on the page.
 
+Copy the downloaded files into your working directory.
+```r
+# You can use list.files() to list the files in your current working directory 
+# (it will come back with nothing if there isn't any files)
+list.files()
+```
+If you have finished this, please go try Challenge 3.1 (just under Task 3.1)
+
 
 ### Task 4.3
 Read in a file.
+```r
+options(stringsAsFactors=FALSE)
+gene_expr <- read.csv("gene_expression.csv")
+gene_annotation <- read.csv("gene_expression.csv")
+```
+
+## 5. Tables
+### Task 5.1
+Check the table characteristics.
+```r
+# It's handy to know what datatype you are dealing with
+class(gene_expr)
+class(gene_annotation)
+
+# This is a very useful way to check what an object looks like
+head(gene_expr)
+head(gene_annotation)
+```
+### Task 5.2
+Each table is made up of columns and rows. All columns have the same length. All rows have the same length. You can refer to each of them individually.
+```r
+# First row
+gene_expr[1,]
+# First column 
+gene_expr[,1]
+# Refer to columns by name. 
+# Once you entered $, it will give you options to auto-complete
+gene_expr$Brain1
+
+
+```
 
 
 
