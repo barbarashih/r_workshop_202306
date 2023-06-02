@@ -55,7 +55,7 @@ a + this_is_a_long_name
 | sample.meta.data.1      | s@mple.meta.data.1      |  Avoid short common terms - they could be existing functions (e.g. min, max, mean)   |
 | sample_meta_data_1 | 1_sample_meta_data      |               |
 ##### Table 1. Examples of good and bad object names. Notes on things to watch out for when naming your objects
-.
+
 
 ### Task 2.2
 ```r
@@ -116,7 +116,9 @@ paste("lunch:",  item1, item2)
   # You can be more specific about what you want to seperate the words with using paste0
   paste0("lunch:", item1, ",", item2, ",", item3)
 
-  # Notice how there are no spaces so far? Spaces are not "empty" space as far as R is concerned. If you want spaces, you need to let it know.
+  # Notice how there are no spaces so far? 
+  # Spaces are not "empty" space as far as R is concerned. 
+  # If you want spaces, you need to let it know.
   paste0("lunch: ", item1, ", ", item2, ", ", item3)
   ```
 </details>
@@ -261,7 +263,7 @@ Go to the link above, and then right click to choose "Save as..." when you're on
 
 File 2
 
-Download the [gene descriptions](https://github.com/barbarashih/r_workshop_202306/raw/main/gene_long_name.csv). 
+Download the [long gene name](https://github.com/barbarashih/r_workshop_202306/raw/main/gene_long_name.csv). 
 Go to the link above, and then right click to choose "Save as..." when you're on the page.
 
 Copy the downloaded files into your working directory.
@@ -281,7 +283,7 @@ Read in a file.
 options(stringsAsFactors=FALSE)
 
 # Read in the files you have downloaded
-gene_expr <- read.csv("gene_expression.csv")
+gene_exprs <- read.csv("gene_expression.csv")
 gene_annotation <- read.csv("gene_long_name.csv")
 ```
 
