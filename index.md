@@ -126,7 +126,7 @@ Data type            | Examples           |  Long explaination         |
 |  | 3.20 | |
 | string | "apple" | A mixture of characters, numbers or symbols |
 |  | "3 three 2 two 1 one!" |  |
-| boolean | TRUE  | True of false |
+| boolean | TRUE  | True or false |
 |  | FALSE  | |
 | vector | c(1, 2, 3)  | An ordered collection of the same data type; you can give names |
 |  | c("apple", "banana", "oranges")  | |
@@ -168,6 +168,7 @@ class(item1)
 
 <br> </br>
 ## 4. Vectors
+### Task 4.1
 ```r
 # You can put multiple strings or numerics together as a vector (they have to be the same type)
 x <- c(1, 2, 3)
@@ -180,6 +181,9 @@ x
 # You can refer to each position of the vectors
 x[3]
 
+```
+### Task 4.2
+```r
 # You can add multiple vectors of the same length
 y <- c(3, 2, 1)
 x + y
@@ -206,8 +210,12 @@ paste(letters, x, sep="")
   A2. It will give you an error message $\textcolor{red}{\textsf{Warning message: In x + y : longer object length is not a multiple of shorter object length}}$ . This is the mathmatical functions will only work if the longer object legnth is multiples of the shorter one. Try changing y <- 1:6
   A3. Because this is not a mathmetical function, it just repeats the shorter length vector.
  </details>
+  
+<br/><br/> 
+  
 ## 5. Read in files
 
+### Task 5.1
 ```r
 # We want to first find where our working directory is
 # Working directory is the folder you are currently in for R
@@ -218,7 +226,8 @@ getwd()
 working_dir <- getwd()
 class(working_dir)
 ```
-### Task 5.1
+  
+### Task 5.2
 
 ```r
 # Create a folder where you want to work from for this workshop and make a string that has the folder path
@@ -230,14 +239,16 @@ working_dir <- "C:/Users/barbara_shih/r_workshop_202306"
 setwd(working_dir)
 
 ```
-### Task 5.2
+### Task 5.3
 File 1
 
-Download [gene expression data](https://github.com/barbarashih/r_workshop_202306/raw/main/gene_expression.csv). Go to the linked page then right click to choose "Save as..." when you're on the page.
+Download [gene expression data](https://github.com/barbarashih/r_workshop_202306/raw/main/gene_expression.csv). 
+Go to the link above, and then right click to choose "Save as..." when you're on the page.
 
 File 2
 
-Download the [gene descriptions](https://github.com/barbarashih/r_workshop_202306/raw/main/gene_long_name.csv) Go to the linked page then right click to choose "Save as..." when you're on the page.
+Download the [gene descriptions](https://github.com/barbarashih/r_workshop_202306/raw/main/gene_long_name.csv). 
+Go to the link above, and then right click to choose "Save as..." when you're on the page.
 
 Copy the downloaded files into your working directory.
 ```r
@@ -248,7 +259,7 @@ list.files()
 If you have finished this, please go try Challenge 3.1 (just under Task 3.1)
 
 
-### Task 5.3
+### Task 5.4
 Read in a file.
 ```r
 # R likes automatically change vectors of strings into factors to save memory
@@ -257,44 +268,66 @@ options(stringsAsFactors=FALSE)
 
 # Read in the files you have downloaded
 gene_expr <- read.csv("gene_expression.csv")
-gene_annotation <- read.csv("gene_expression.csv")
+gene_annotation <- read.csv("gene_long_name.csv")
 ```
 
-## 6. Tables
+<br/><br/> 
+## 6. Dataframes (tables)
 ### Task 6.1
-Check the table characteristics.
+Check the dataframe characteristics.
 ```r
-# It's handy to know what datatype you are dealing with
-class(gene_expr)
+# It's handy to know what data type you are dealing with
+class(gene_exprs)
 class(gene_annotation)
 
 # This is a very useful way to check what an object looks like
-head(gene_expr)
+head(gene_exprs)
 head(gene_annotation)
+               
+# It is useful to check the number of rows and columns in a dataframe
+ncol(gene_exprs)
+nrow(gene_exprs)
 
 ```
 ### Task 6.2
 Each table is made up of columns and rows. All columns have the same length. All rows have the same length. You can refer to each of them individually.
 ```r
 # First row
-gene_expr[1,]
-# First column 
-gene_expr[,1]
-# Refer to columns by name. 
-gene_expr$Brain1
+gene_exprs[1,]
 # Refer to multiple rows
-gene_expr[c(1,4,5),]
+gene_exprs[1:5,]
+gene_exprs[c(1,4,5),]
 
+# First column
+gene_exprs[,1]
+# Refer to columns by name. (head is used to show the first 6 values)
+head(gene_exprs$Brain1)
+# Refer to multiple columns. (head is used to show the first 6 values)
+head(gene_exprs[,c("Brain1", "Blood1")] )      
+               
 # Check the data type
-class(gene_expr$Brain1)
-class(gene_expr$Name)
-
-# Check what the first few numbers look like
-head(gene_expr$Brain1)
-
-
-
+class(gene_exprs$Brain1)
+class(gene_exprs$Name)
 ```
+         
+### Task 6.3
+```r
+# You can make a new column by using existing columns
+gene_expr_edited <- gene_expr
+gene_expr_edited$Mixed1 <-  gene_expr$Brain1 + gene_expr$Blood1
+head(gene_expr)
+head(gene_expr_edited)
+
+# You can make a new column based on conditions you want 
+# Filters (add the conditions you want together with &)
+gene_expr_edited$threshold <- (gene_expr_edited$Brain1 > 0) & (gene_expr_edited$Brain2 > 0) & (gene_expr_edited$Brain3 > 0)  
+head(gene_expr_edited)
+# Filters ( | )
+gene_expr_edited$threshold <- (gene_expr_edited$Brain1 > 0) | (gene_expr_edited$Brain2 > 0) | (gene_expr_edited$Brain3 > 0)  
+head(gene_expr_edited)  
+                          
+```
+
 
 
 
