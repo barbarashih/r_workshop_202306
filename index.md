@@ -400,14 +400,43 @@ nrow(gene_exprs_annotated2)
   
   ```r
   # You can refer to specific columns in a dataframe by their name
-  gene_exprs[,c("Brain1", "Blood1")]
+  gene_exprs_annotated1[,c("Brain1", "Blood1")]
   # Q1. Try to organise your dataframe so the columns starts with Name, Description, Gene.Name, and then the sample columns
   # [Hint: you can use colnames(gene_exprs) to get a vector of the column names]
+  # A1. Method1
+  gene_exprs_annotated1_reordered <- gene_exprs_annotated1[,c("Name", "Description", "Gene.Name", "Brain1", "Brain2", "Brain3", "Blood1", "Blood2", "Blood3")]
+  head(gene_exprs_annotated1_reordered)
+  # A1. Method2
+  gene_exprs_annotated1_colnames <- colnames(gene_exprs_annotated1_reordered)
+  gene_exprs_annotated1_reordered <- gene_exprs_annotated1[,c(1:2, 9, 3:8)]
   ```
 </details>
+ 
 
+## 7. Basic R plots
+```r
+# Scatter plot
+plot(gene_exprs$Brain1, gene_exprs$Brain2)
+
+# You can change the plot size
+plot(gene_exprs$Brain1, gene_exprs$Brain2, cex=1, pch=25)
+
+# You can add axis title and graph titles
+plot(gene_exprs$Brain1, gene_exprs$Brain2, main="RNA seq", xlab="Brain1", ylab="Brain2")
   
+# You can change the axis scales to log
+plot(gene_exprs$Brain1, gene_exprs$Brain2, log='xy')
+  
+```
 
+![image](https://github.com/barbarashih/r_workshop_202306/assets/8283969/8b0ae209-b536-40ad-8821-bd1d111a7d27)
+```r
+# you can change plot shape
+plot(gene_exprs$Brain1, gene_exprs$Brain2, pch=25, log='xy')
+  
+# Add second set of data
+points(gene_exprs$Brain1, gene_exprs$Blood1, col="blue", pch=16)
+```
 
 
 
