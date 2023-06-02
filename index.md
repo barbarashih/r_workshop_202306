@@ -319,11 +319,11 @@ gene_exprs[1:5,]
 gene_exprs[c(1,4,5),]
 
 # First column
-gene_exprs[,1]
+gene_exprs[,1][1:10] # I only printed the first 10 values
 # Refer to columns by name. (head is used to show the first 6 values)
-head(gene_exprs$Brain1)
+gene_exprs$Brain1[1:10] # I only printed the first 10 values
 # Refer to multiple columns. (head is used to show the first 6 values)
-head(gene_exprs[,c("Brain1", "Blood1")] )      
+gene_exprs[,c("Brain1", "Blood1")][1:10,] # I only printed the first 10 rows
                
 # Check the data type
 class(gene_exprs$Brain1)
@@ -340,7 +340,7 @@ class(gene_exprs$Name)
 ```r
 # You can get the column and rownames, these are vectors
 colnames(gene_exprs)
-row.names(gene_exprs)
+rownames(gene_exprs)[1:10] # I only printed the first 10 
 
 # You can set the row names to a vector of unique values
 # Think of it like names - if you have 2 identical names, R wouldn't be able to tell which is which
