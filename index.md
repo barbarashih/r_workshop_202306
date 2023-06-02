@@ -15,6 +15,7 @@ x
 ```
 
 Q1. What does the error you get from typing "x" mean?
+
 Q2. Try adding a # before typing letters, what happens?
 
 <details>
