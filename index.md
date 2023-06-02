@@ -15,8 +15,9 @@ x
 ```
 
 Q1. What does the error you get from typing "x" mean?
-<details>
 Q2. Try adding a # before typing letters, what happens?
+
+<details>
   <summary>Answers</summary>
   A1. The error message $\textcolor{red}{\textsf{Error: object 'x' not found}}$ means that R cannot find an object called x. When you see this error and you know that the object should be there, $\textcolor{blue}{\textsf{check that you haven't spelt it wrong}}$ . In this case, the object isn't there.
   A2. R ignores everything that comes after a #. It is considered to be a comment. Comments are extremely useful and your future-self will thank you for making good comments.
