@@ -414,6 +414,9 @@ nrow(gene_exprs_annotated2)
  
 
 ## 7. Basic R plots
+
+### Task 7.1
+  
 ```r
 # Scatter plot
 plot(gene_exprs$Brain1, gene_exprs$Brain2)
@@ -434,15 +437,30 @@ plot(gene_exprs$Brain1 + 0.1, gene_exprs$Brain2 + 0.1, log='xy')
 
 
 ![image](https://github.com/barbarashih/r_workshop_202306/assets/8283969/8b0ae209-b536-40ad-8821-bd1d111a7d27)
+
+### Task 7.2  
 ```r
 # you can change plot shape
-plot(gene_exprs$Brain1, gene_exprs$Brain2, pch=25, log='xy')
+plot(gene_exprs$Brain1, gene_exprs$Brain2, cex=0.5, pch=25, log='xy', xlab="Brain1 exprs", ylab="Brain2 or Blood1 exprs")
   
 # Add second set of data
-points(gene_exprs$Brain1, gene_exprs$Blood1, col="blue", pch=16)
+points(gene_exprs$Brain1, gene_exprs$Blood1, cex=0.5, col="blue", pch=16)
 ```
+  
+<details>
+  <summary>Challenge</summary>
+  
+```r
+# Label genes with very high expression
+# Find genes with very high expression
+high_exprs <- (gene_exprs$Brain1 > 4000) | (gene_exprs$Brain2 > 4000) 
+# Use Description if high_exprs is TRUE
+text_label <- ifelse(high_exprs, gene_exprs$Description, "")
 
-
+plot(gene_exprs$Brain1, gene_exprs$Brain2, main="RNA seq", xlab="Brain1", ylab="Brain2", , log='xy')
+text(gene_exprs$Brain1, gene_exprs$Brain2, label=text_label)
+```
+</details>
 
 
 
