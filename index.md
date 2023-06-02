@@ -40,7 +40,8 @@ a <- 1
 a + b
 
 # Your object name can be more descriptive
-# This is important when you write longer piece of code, because it will quickly get confusing what short names like a and b refers to.
+# This is important when you write longer piece of code, 
+# because it will quickly get confusing what short names like a and b refers to.
 this_is_a_long_name <- 1000
 a + this_is_a_long_name
 
@@ -166,7 +167,46 @@ class(item1)
 
 
 <br> </br>
-## 4. Read in a file
+## 4. Vectors
+```r
+# You can put multiple strings or numerics together as a vector (they have to be the same type)
+x <- c(1, 2, 3)
+x
+
+# for continuous integers (i.e. 1, 2, 3, 4, 5) you can use :
+x <- 1:3
+x
+
+# You can refer to each position of the vectors
+x[3]
+
+# You can add multiple vectors of the same length
+y <- c(3, 2, 1)
+x + y
+
+# You can paste two vectors
+letters <- c("a", "b", "c")
+paste(letters, x, sep="")
+```
+<details>
+  <summary>Challenge</summary>
+  ```r
+  # Q1. What happens when you put a mixture of numbers and strings together?
+  c(1, 2, 3, "apple")
+  # Q2. Try the below
+  x <- c(1, 2, 3)
+  y <- 1:5
+  x + y
+  # Q3. Try the below
+  x <- 1:5
+  y <- c("a", "b")
+  x + y
+  ```
+  A1. It turns all the numbers into strings (notice the quotation marks added around the numbers in the output even when you didn't add them when you created the object)
+  A2. It will give you an error message $\textcolor{red}{\textsf{Warning message: In x + y : longer object length is not a multiple of shorter object length}}$ . This is the mathmatical functions will only work if the longer object legnth is multiples of the shorter one. Try changing y <- 1:6
+  A3. Because this is not a mathmetical function, it just repeats the shorter length vector.
+ </details>
+## 5. Read in files
 
 ```r
 # We want to first find where our working directory is
@@ -178,7 +218,7 @@ getwd()
 working_dir <- getwd()
 class(working_dir)
 ```
-### Task 4.1
+### Task 5.1
 
 ```r
 # Create a folder where you want to work from for this workshop and make a string that has the folder path
@@ -190,7 +230,7 @@ working_dir <- "C:/Users/barbara_shih/r_workshop_202306"
 setwd(working_dir)
 
 ```
-### Task 4.2
+### Task 5.2
 File 1
 
 Download [gene expression data](https://github.com/barbarashih/r_workshop_202306/raw/main/gene_expression.csv). Go to the linked page then right click to choose "Save as..." when you're on the page.
@@ -208,16 +248,20 @@ list.files()
 If you have finished this, please go try Challenge 3.1 (just under Task 3.1)
 
 
-### Task 4.3
+### Task 5.3
 Read in a file.
 ```r
+# R likes automatically change vectors of strings into factors to save memory
+# Turn this off for now as it can cause confusion 
 options(stringsAsFactors=FALSE)
+
+# Read in the files you have downloaded
 gene_expr <- read.csv("gene_expression.csv")
 gene_annotation <- read.csv("gene_expression.csv")
 ```
 
-## 5. Tables
-### Task 5.1
+## 6. Tables
+### Task 6.1
 Check the table characteristics.
 ```r
 # It's handy to know what datatype you are dealing with
@@ -227,8 +271,9 @@ class(gene_annotation)
 # This is a very useful way to check what an object looks like
 head(gene_expr)
 head(gene_annotation)
+
 ```
-### Task 5.2
+### Task 6.2
 Each table is made up of columns and rows. All columns have the same length. All rows have the same length. You can refer to each of them individually.
 ```r
 # First row
@@ -236,8 +281,17 @@ gene_expr[1,]
 # First column 
 gene_expr[,1]
 # Refer to columns by name. 
-# Once you entered $, it will give you options to auto-complete
 gene_expr$Brain1
+# Refer to multiple rows
+gene_expr[c(1,4,5),]
+
+# Check the data type
+class(gene_expr$Brain1)
+class(gene_expr$Name)
+
+# Check what the first few numbers look like
+head(gene_expr$Brain1)
+
 
 
 ```
