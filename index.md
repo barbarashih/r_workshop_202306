@@ -227,7 +227,9 @@ c(1, 100, letters)
   x + y
   ```
   A1. It turns all the numbers into strings (notice the quotation marks added around the numbers in the output even when you didn't add them when you created the object)
+  
   A2. It will give you an error message $\textcolor{red}{\textsf{Warning message: In x + y : longer object length is not a multiple of shorter object length}}$ . This is the mathmatical functions will only work if the longer object legnth is multiples of the shorter one. Try changing y <- 1:6
+  
   A3. Because this is not a mathmetical function, it just repeats the shorter length vector.
  </details>
   
